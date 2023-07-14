@@ -1,8 +1,10 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
+
+import 'package:http/http.dart' as http;
 
 import 'package:api_test_2/data/model/todo.dart';
 import 'package:api_test_2/data/model/user.dart';
-import 'package:http/http.dart' as http;
 
 class Api {
   Future<List<User>> getUser() async {
@@ -29,6 +31,7 @@ class Api {
     List<ToDo> todos = [];
 
     // Set up URL
+
     final url = Uri.parse('https://jsonplaceholder.typicode.com/todos');
 
     // Make request
@@ -40,6 +43,13 @@ class Api {
     for (var element in data) {
       final todo = toDoFromJson(jsonEncode(element));
       todos.add(todo);
+    }
+
+    for (var element in todos) {
+      if (element.userId == id) {
+        todos.where((element) => todos.contains(element.userId)).toList();
+        // print(element.userId);
+      }
     }
 
     return todos;

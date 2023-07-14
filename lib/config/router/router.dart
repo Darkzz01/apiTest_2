@@ -20,7 +20,9 @@ final router = GoRouter(
       path: '/details/:id',
       name: '/details',
       builder: (context, state) {
-        return UserDetailsPage(id: int.parse(state.pathParameters['id']!));
+        return UserDetailsPage(
+          id: int.parse(state.pathParameters['id']!),
+        );
       },
     ),
   ],
