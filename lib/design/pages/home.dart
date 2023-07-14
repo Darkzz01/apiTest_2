@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -8,6 +9,20 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home'),
+      ),
+      body: Center(
+        child: TextButton(
+          onPressed: () {
+            context.pushNamed('/users');
+          },
+          child: const Text(
+            'Test',
+            style: TextStyle(
+              fontSize: 20,
+              color: Colors.lightGreenAccent,
+            ),
+          ),
+        ),
       ),
     );
   }
