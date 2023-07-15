@@ -29,6 +29,7 @@ class Api {
 
   Future<List<ToDo>> getToDo(int id) async {
     List<ToDo> todos = [];
+    List<ToDo> copyTodos = List.from(todos);
 
     // Set up URL
 
@@ -45,10 +46,9 @@ class Api {
       todos.add(todo);
     }
 
-    for (var element in todos) {
-      if (element.userId == id) {
-        todos.where((element) => todos.contains(element.userId)).toList();
-        // print(element.userId);
+    for (var element in copyTodos) {
+      if (element.userId == element.userId) {
+        copyTodos.add(element);
       }
     }
 
